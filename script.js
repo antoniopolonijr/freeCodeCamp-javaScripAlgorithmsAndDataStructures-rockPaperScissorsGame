@@ -34,6 +34,8 @@ const winnerMsgElement = document.getElementById("winner-msg");
 const optionsContainer = document.querySelector(".options-container");
 const resetGameBtn = document.getElementById("reset-game-btn");
 
+resetGameBtn.addEventListener("click", resetGame);
+
 function showResults(userOption) {
   roundResultsMsg.innerText = getRoundResults(userOption);
   computerScoreSpanElement.innerText = computerScore;
@@ -47,6 +49,16 @@ function showResults(userOption) {
     resetGameBtn.style.display = "block";
     optionsContainer.style.display = "none";
   }
+}
+function resetGame() {
+  playerScore = 0;
+  computerScore = 0;
+  playerScoreSpanElement.innerText = playerScore;
+  computerScoreSpanElement.innerText = computerScore;
+  resetGameBtn.style.display = "none";
+  optionsContainer.style.display = "block";
+  winnerMsgElement.innerText = "";
+  roundResultsMsg.innerText = "";
 }
 
 const rockBtn = document.getElementById("rock-btn");
